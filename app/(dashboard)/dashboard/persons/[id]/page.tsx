@@ -396,8 +396,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateKetPetugasAction({} as any, formData)
-            : await createKetPetugasAction({} as any, formData);
+            ? await updateKetPetugasAction(formData)
+            : await createKetPetugasAction(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,
@@ -413,8 +413,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateKetenagakerjaanAction({} as any, formData)
-            : await createKetenagakerjaanAction({} as any, formData);
+            ? await updateKetenagakerjaanAction(formData)
+            : await createKetenagakerjaanAction(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,
@@ -430,8 +430,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateKeteranganPerumahanAction({} as any, formData)
-            : await createKeteranganPerumahanAction({} as any, formData);
+            ? await updateKeteranganPerumahanAction(formData)
+            : await createKeteranganPerumahanAction(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,
@@ -447,8 +447,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateKeteranganPerumahanBlok2Action({} as any, formData)
-            : await createKeteranganPerumahanBlok2Action({} as any, formData);
+            ? await updateKeteranganPerumahanBlok2Action(formData)
+            : await createKeteranganPerumahanBlok2Action(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,
@@ -464,8 +464,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateBantuanAction({} as any, formData)
-            : await createBantuanAction({} as any, formData);
+            ? await updateBantuanAction(formData)
+            : await createBantuanAction(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,
@@ -481,8 +481,8 @@ export default function FamilyDetailPage() {
             }
         });
         const result = data.id
-            ? await updateDisabilitasAction({} as any, formData)
-            : await createDisabilitasAction({} as any, formData);
+            ? await updateDisabilitasAction(formData)
+            : await createDisabilitasAction(formData);
         return {
             success: 'success' in result ? result.success : false,
             error: result.error,

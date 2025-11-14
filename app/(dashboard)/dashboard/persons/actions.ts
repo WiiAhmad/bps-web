@@ -74,10 +74,21 @@ export const getKeluargasAction = withUser(
  * - Checks for duplicate family card number
  * - Creates keluarga record in database
  */
-export const createKeluargaAction = validatedActionWithUser(
-    createKeluargaSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createKeluargaAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            // Validate input data
+            const result = createKeluargaSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             // Check if keluarga with same family card number already exists
             const existingKeluarga = await getKeluargaByNomorKK(data.nomorKartuKeluarga);
 
@@ -119,10 +130,20 @@ export const createKeluargaAction = validatedActionWithUser(
  * - Checks for family card number conflicts (excluding current record)
  * - Updates keluarga record in database
  */
-export const updateKeluargaAction = validatedActionWithUser(
-    updateKeluargaSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateKeluargaAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            // Validate input data
+            const result = updateKeluargaSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
             const keluargaId = data.id;
 
             // Check if updated family card number conflicts with another keluarga record

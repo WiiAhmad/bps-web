@@ -35,16 +35,22 @@ export function AnggotaKeluargaDialog({
     setIsLoading(true);
     try {
       let result;
+      const formData = new FormData();
+      
+      // Append all form fields to FormData
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== undefined && value !== null) {
+          formData.append(key, String(value));
+        }
+      });
       
       if (mode === 'edit' && initialData?.id) {
         // Update existing anggota keluarga
-        result = await updateAnggotaKeluargaAction({
-          id: initialData.id,
-          ...data,
-        });
+        formData.append('id', initialData.id.toString());
+        result = await updateAnggotaKeluargaAction(formData);
       } else {
         // Create new anggota keluarga
-        result = await createAnggotaKeluargaAction(data);
+        result = await createAnggotaKeluargaAction(formData);
       }
 
       if (result.success) {

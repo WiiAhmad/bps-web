@@ -177,10 +177,21 @@ export const getKeluargaDetailAction = withUser(
  * - Checks for duplicate NIK
  * - Creates anggota keluarga record linked to family
  */
-export const createAnggotaKeluargaAction = validatedActionWithUser(
-    createAnggotaKeluargaSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createAnggotaKeluargaAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            // Validate input data
+            const result = createAnggotaKeluargaSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             // Check if NIK already exists
             const existingAnggota = await getAnggotaKeluargaByNIK(data.NIK);
 
@@ -233,10 +244,20 @@ export const createAnggotaKeluargaAction = validatedActionWithUser(
  * - Checks for NIK conflicts (excluding current record)
  * - Updates anggota keluarga record
  */
-export const updateAnggotaKeluargaAction = validatedActionWithUser(
-    updateAnggotaKeluargaSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateAnggotaKeluargaAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            // Validate input data
+            const result = updateAnggotaKeluargaSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
             const anggotaId = data.id;
 
             // Check if updated NIK conflicts with another anggota keluarga record
@@ -372,10 +393,20 @@ const updateKetPetugasSchema = z.object({
     hasilPendataan: z.string().min(1, 'Survey result is required'),
 });
 
-export const createKetPetugasAction = validatedActionWithUser(
-    createKetPetugasSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createKetPetugasAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createKetPetugasSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newKetPetugas = await createKetPetugas({
                 idKeluarga: data.idKeluarga,
                 tanggalPendataan: data.tanggalPendataan,
@@ -402,10 +433,20 @@ export const createKetPetugasAction = validatedActionWithUser(
     }
 );
 
-export const updateKetPetugasAction = validatedActionWithUser(
-    updateKetPetugasSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateKetPetugasAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateKetPetugasSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedKetPetugas = await updateKetPetugas(data.id, {
                 idKeluarga: data.idKeluarga,
                 tanggalPendataan: data.tanggalPendataan,
@@ -495,10 +536,20 @@ const updateKetenagakerjaanSchema = z.object({
     lengkap: z.string().optional(),
 });
 
-export const createKetenagakerjaanAction = validatedActionWithUser(
-    createKetenagakerjaanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createKetenagakerjaanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createKetenagakerjaanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newKetenagakerjaan = await createKetenagakerjaan({
                 idAnggotaKeluarga: data.idAnggotaKeluarga,
                 bekerja: data.bekerja || null,
@@ -523,10 +574,20 @@ export const createKetenagakerjaanAction = validatedActionWithUser(
     }
 );
 
-export const updateKetenagakerjaanAction = validatedActionWithUser(
-    updateKetenagakerjaanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateKetenagakerjaanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateKetenagakerjaanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedKetenagakerjaan = await updateKetenagakerjaan(data.id, {
                 idAnggotaKeluarga: data.idAnggotaKeluarga,
                 bekerja: data.bekerja || null,
@@ -618,10 +679,20 @@ const updateKeteranganPerumahanSchema = z.object({
     daya: z.string().optional(),
 });
 
-export const createKeteranganPerumahanAction = validatedActionWithUser(
-    createKeteranganPerumahanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createKeteranganPerumahanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createKeteranganPerumahanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newKetPerumahan = await createKeteranganPerumahan({
                 idKeluarga: data.idKeluarga,
                 luasLantai: data.luasLantai || null,
@@ -648,10 +719,20 @@ export const createKeteranganPerumahanAction = validatedActionWithUser(
     }
 );
 
-export const updateKeteranganPerumahanAction = validatedActionWithUser(
-    updateKeteranganPerumahanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateKeteranganPerumahanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateKeteranganPerumahanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedKetPerumahan = await updateKeteranganPerumahan(data.id, {
                 idKeluarga: data.idKeluarga,
                 luasLantai: data.luasLantai || null,
@@ -743,10 +824,20 @@ const updateKeteranganPerumahanBlok2Schema = z.object({
     sapi: z.string().transform(Number).pipe(z.number()).optional(),
 });
 
-export const createKeteranganPerumahanBlok2Action = validatedActionWithUser(
-    createKeteranganPerumahanBlok2Schema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createKeteranganPerumahanBlok2Action = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createKeteranganPerumahanBlok2Schema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newKetPerumahanBlok2 = await createKeteranganPerumahanBlok2({
                 idKeluarga: data.idKeluarga,
                 luasPertanianSawah: data.luasPertanianSawah || null,
@@ -772,10 +863,20 @@ export const createKeteranganPerumahanBlok2Action = validatedActionWithUser(
     }
 );
 
-export const updateKeteranganPerumahanBlok2Action = validatedActionWithUser(
-    updateKeteranganPerumahanBlok2Schema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateKeteranganPerumahanBlok2Action = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateKeteranganPerumahanBlok2Schema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedKetPerumahanBlok2 = await updateKeteranganPerumahanBlok2(data.id, {
                 idKeluarga: data.idKeluarga,
                 luasPertanianSawah: data.luasPertanianSawah || null,
@@ -876,10 +977,20 @@ const updateBantuanSchema = z.object({
     bantuanlainnyaNama: z.string().transform(Number).pipe(z.number()).optional(),
 });
 
-export const createBantuanAction = validatedActionWithUser(
-    createBantuanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createBantuanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createBantuanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newBantuan = await createBantuan({
                 idKeluarga: data.idKeluarga,
                 idAnggotaKeluarga: data.idAnggotaKeluarga,
@@ -910,10 +1021,20 @@ export const createBantuanAction = validatedActionWithUser(
     }
 );
 
-export const updateBantuanAction = validatedActionWithUser(
-    updateBantuanSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateBantuanAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateBantuanSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedBantuan = await updateBantuan(data.id, {
                 idKeluarga: data.idKeluarga,
                 idAnggotaKeluarga: data.idAnggotaKeluarga,
@@ -1013,10 +1134,20 @@ const updateDisabilitasSchema = z.object({
     tunaLainnyaNama: z.string().optional(),
 });
 
-export const createDisabilitasAction = validatedActionWithUser(
-    createDisabilitasSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const createDisabilitasAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = createDisabilitasSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const newDisabilitas = await createDisabilitas({
                 idKeluarga: data.idKeluarga,
                 idAnggotaKeluarga: data.idAnggotaKeluarga,
@@ -1044,10 +1175,20 @@ export const createDisabilitasAction = validatedActionWithUser(
     }
 );
 
-export const updateDisabilitasAction = validatedActionWithUser(
-    updateDisabilitasSchema,
-    async (data, _formData, _user): Promise<ActionResponse> => {
+export const updateDisabilitasAction = withUser(
+    async (formData: FormData, _user: User): Promise<ActionResponse> => {
         try {
+            const result = updateDisabilitasSchema.safeParse(Object.fromEntries(formData));
+            
+            if (!result.success) {
+                return {
+                    success: false,
+                    error: result.error.issues[0].message,
+                };
+            }
+
+            const data = result.data;
+
             const updatedDisabilitas = await updateDisabilitas(data.id, {
                 idKeluarga: data.idKeluarga,
                 idAnggotaKeluarga: data.idAnggotaKeluarga,

@@ -45,7 +45,7 @@ export function KeluargaDialog({
         formData.append('idMFD', data.idMFD.toString());
         formData.append('catatan', data.catatan || '');
         
-        result = await updateKeluargaAction({}, formData);
+        result = await updateKeluargaAction(formData);
       } else {
         // Create new keluarga
         formData.append('namaKepalaKeluarga', data.namaKepalaKeluarga);
@@ -55,7 +55,7 @@ export function KeluargaDialog({
         formData.append('idMFD', data.idMFD.toString());
         formData.append('catatan', data.catatan || '');
         
-        result = await createKeluargaAction({}, formData);
+        result = await createKeluargaAction(formData);
       }
 
       if (result.success) {

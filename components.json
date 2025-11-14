@@ -18,5 +18,11 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@magicui": "https://magicui.design/r/{name}",
+    "@ai-elements": "https://registry.ai-sdk.dev/{name}.json",
+    "@elevenlabs-ui": "https://ui.elevenlabs.io/r/{name}.json",
+    "@shadcn-studio": "https://shadcnstudio.com/r/{name}.json"
+  }
 }

@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { db } from './drizzle';
-import { 
+import {
   usersTable,
   tableMFD,
   tableKeluarga,
@@ -12,6 +12,7 @@ import {
   tableBantuan,
   tableDisabilitas
 } from './schema';
+import { hashPassword } from '../auth/session';
 
 async function main() {
   console.log('🌱 Starting database seeding...');
@@ -33,12 +34,19 @@ async function main() {
 
     // 1. Seed Users (base table - no dependencies)
     console.log('👥 Seeding users...');
+
+    // Hash passwords for all users
+    const hashedPassword1 = await hashPassword('password123');
+    const hashedPassword2 = await hashPassword('password456');
+    const hashedPassword3 = await hashPassword('password789');
+    const hashedPassword4 = await hashPassword('password101');
+
     const users = await db.insert(usersTable).values([
       {
         nama: 'Ahmad Sutrisno',
         email: 'ahmad.sutrisno@email.com',
         username: 'ahmad_admin',
-        password: 'hashed_password_123',
+        password: hashedPassword1,
         photo: 'photos/ahmad.jpg',
         tanggal_lahir: new Date('1985-05-15').toISOString(),
         NoTelpon: '081234567890',
@@ -53,7 +61,7 @@ async function main() {
         nama: 'Siti Nurhaliza',
         email: 'siti.nurhaliza@email.com',
         username: 'siti_petugas',
-        password: 'hashed_password_456',
+        password: hashedPassword2,
         photo: 'photos/siti.jpg',
         tanggal_lahir: new Date('1990-08-22').toISOString(),
         NoTelpon: '081234567891',
@@ -68,7 +76,7 @@ async function main() {
         nama: 'Budi Santoso',
         email: 'budi.santoso@email.com',
         username: 'budi_petugas',
-        password: 'hashed_password_789',
+        password: hashedPassword3,
         photo: 'photos/budi.jpg',
         tanggal_lahir: new Date('1988-12-10').toISOString(),
         NoTelpon: '081234567892',
@@ -83,12 +91,27 @@ async function main() {
         nama: 'Rina Marlina',
         email: 'rina.marlina@email.com',
         username: 'rina_pemeriksa',
-        password: 'hashed_password_101',
+        password: hashedPassword4,
         photo: 'photos/rina.jpg',
         tanggal_lahir: new Date('1992-03-18').toISOString(),
         NoTelpon: '081234567893',
         role: 'pemeriksa',
         alamat: 'Jl. Gatot Subroto No. 321, Jakarta Selatan',
+        isVerified: 1,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        deleted: 0,
+      },
+      {
+        nama: 'Admin',
+        email: 'admin@example.com',
+        username: 'admin',
+        password: hashedPassword1,
+        photo: 'photos/ahmad.jpg',
+        tanggal_lahir: new Date('1985-05-15').toISOString(),
+        NoTelpon: '081234567890',
+        role: 'admin',
+        alamat: 'Jl. Veteran No. 123, Jakarta Pusat',
         isVerified: 1,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
@@ -233,19 +256,19 @@ async function main() {
       { idKeluarga: keluarga[0].id, nomorUrut: 2, namaLengkap: 'Sari Rahayu', NIK: '3171010101010002', jenisKelamin: 2, hubunganKeluarga: 2, statusKawin: 1, tempatLahir: 'Jakarta', tanggalLahir: new Date('1982-08-15').toISOString(), umur: 42, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 5, kelasTertinggi: 9, ijazahTertinggi: 2 },
       { idKeluarga: keluarga[0].id, nomorUrut: 3, namaLengkap: 'Budi Susilo', NIK: '3171010101010003', jenisKelamin: 1, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2005-12-20').toISOString(), umur: 19, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 1, tingkatPendidikan: 4, kelasTertinggi: 12, ijazahTertinggi: 1 },
       { idKeluarga: keluarga[0].id, nomorUrut: 4, namaLengkap: 'Ani Susilo', NIK: '3171010101010004', jenisKelamin: 2, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2008-03-25').toISOString(), umur: 16, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 1, tingkatPendidikan: 3, kelasTertinggi: 10, ijazahTertinggi: 0 },
-      
+
       // Family 2 (Maya Sari)
       { idKeluarga: keluarga[1].id, nomorUrut: 1, namaLengkap: 'Maya Sari', NIK: '3171010101010005', jenisKelamin: 2, hubunganKeluarga: 1, statusKawin: 1, tempatLahir: 'Jakarta', tanggalLahir: new Date('1995-07-12').toISOString(), umur: 29, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 5, kelasTertinggi: 9, ijazahTertinggi: 2 },
       { idKeluarga: keluarga[1].id, nomorUrut: 2, namaLengkap: 'Dedi Pratama', NIK: '3171010101010006', jenisKelamin: 1, hubunganKeluarga: 2, statusKawin: 1, tempatLahir: 'Jakarta', tanggalLahir: new Date('1993-11-18').toISOString(), umur: 31, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 6, kelasTertinggi: 12, ijazahTertinggi: 3 },
       { idKeluarga: keluarga[1].id, nomorUrut: 3, namaLengkap: 'Rizki Pratama', NIK: '3171010101010007', jenisKelamin: 1, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2020-04-10').toISOString(), umur: 4, agama: 1, kartuIdentitas: 2, domisili: 1, partisipasiSekolah: 1, tingkatPendidikan: 0, kelasTertinggi: 0, ijazahTertinggi: 0 },
-      
+
       // Family 3 (Andi Wijaya)
       { idKeluarga: keluarga[2].id, nomorUrut: 1, namaLengkap: 'Andi Wijaya', NIK: '3171010101010008', jenisKelamin: 1, hubunganKeluarga: 1, statusKawin: 1, tempatLahir: 'Jakarta', tanggalLahir: new Date('1975-09-08').toISOString(), umur: 49, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 6, kelasTertinggi: 12, ijazahTertinggi: 3 },
       { idKeluarga: keluarga[2].id, nomorUrut: 2, namaLengkap: 'Linda Sari', NIK: '3171010101010009', jenisKelamin: 2, hubunganKeluarga: 2, statusKawin: 1, tempatLahir: 'Jakarta', tanggalLahir: new Date('1978-01-15').toISOString(), umur: 47, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 5, kelasTertinggi: 9, ijazahTertinggi: 2 },
       { idKeluarga: keluarga[2].id, nomorUrut: 3, namaLengkap: 'Riko Wijaya', NIK: '3171010101010010', jenisKelamin: 1, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2002-06-20').toISOString(), umur: 22, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 4, kelasTertinggi: 12, ijazahTertinggi: 1 },
       { idKeluarga: keluarga[2].id, nomorUrut: 4, namaLengkap: 'Sinta Wijaya', NIK: '3171010101010011', jenisKelamin: 2, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2004-11-12').toISOString(), umur: 20, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 4, kelasTertinggi: 12, ijazahTertinggi: 1 },
       { idKeluarga: keluarga[2].id, nomorUrut: 5, namaLengkap: 'Dodi Wijaya', NIK: '3171010101010012', jenisKelamin: 1, hubunganKeluarga: 3, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('2007-02-28').toISOString(), umur: 17, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 1, tingkatPendidikan: 3, kelasTertinggi: 11, ijazahTertinggi: 0 },
-      
+
       // Family 4 (Sari Dewi)
       { idKeluarga: keluarga[3].id, nomorUrut: 1, namaLengkap: 'Sari Dewi', NIK: '3171010101010013', jenisKelamin: 2, hubunganKeluarga: 1, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('1965-03-15').toISOString(), umur: 60, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 4, kelasTertinggi: 12, ijazahTertinggi: 1 },
       { idKeluarga: keluarga[3].id, nomorUrut: 2, namaLengkap: 'Hadi Sutomo', NIK: '3171010101010014', jenisKelamin: 1, hubunganKeluarga: 2, statusKawin: 2, tempatLahir: 'Jakarta', tanggalLahir: new Date('1963-07-22').toISOString(), umur: 62, agama: 1, kartuIdentitas: 1, domisili: 1, partisipasiSekolah: 2, tingkatPendidikan: 4, kelasTertinggi: 12, ijazahTertinggi: 1 },

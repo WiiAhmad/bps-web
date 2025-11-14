@@ -1,5 +1,5 @@
 
-import { pgTable, serial, text, integer, varchar, date, foreignKey, doublePrecision} from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, varchar, date, doublePrecision } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
 export const usersTable = pgTable('users', {
@@ -19,6 +19,8 @@ export const usersTable = pgTable('users', {
   deleted: integer('deleted').notNull().default(0),
 });
 
+export type NewUser = typeof usersTable.$inferInsert;
+
 export const tableMFD = pgTable('mfd', {
   id: serial('id').primaryKey(),
   namaProvinsi: varchar('r101Pro').notNull(),
@@ -37,6 +39,8 @@ export const tableMFD = pgTable('mfd', {
   kodeSubSLS: varchar('r107KSSLS').notNull(),
 });
 
+export type NewMFD = typeof tableMFD.$inferInsert;
+
 export const tableKeluarga = pgTable('keluarga', {
   id: serial('id').primaryKey(),
   namaKepalaKeluarga: varchar('r108NKK').notNull(),
@@ -46,6 +50,8 @@ export const tableKeluarga = pgTable('keluarga', {
   idMFD: integer('mfdId').notNull().references(() => tableMFD.id),
   catatan: text('rNote').notNull(),
 });
+
+export type NewKeluarga = typeof tableKeluarga.$inferInsert;
 
 export const tableKetPetugas = pgTable('ketPetugas', {
   id: serial('id').primaryKey(),
@@ -58,6 +64,8 @@ export const tableKetPetugas = pgTable('ketPetugas', {
   hasilPendataan: varchar('r205HP').notNull(),
   idKeluarga: integer('keluargaId').notNull().references(() => tableKeluarga.id),
 });
+
+export type NewKetPetugas = typeof tableKetPetugas.$inferInsert;
 
 export const tableAnggotaKeluarga = pgTable('anggotaKeluarga', {
   id: serial('id').primaryKey(),
@@ -80,6 +88,8 @@ export const tableAnggotaKeluarga = pgTable('anggotaKeluarga', {
   ijazahTertinggi: integer('r316IT').notNull(),
 });
 
+export type NewAnggotaKeluarga = typeof tableAnggotaKeluarga.$inferInsert;
+
 export const tableKetenagakerjaan = pgTable('ketenagakerjaan', {
   id: serial('id').primaryKey(),
   idAnggotaKeluarga: integer('anggotaKeluargaId').notNull().references(() => tableAnggotaKeluarga.id),
@@ -89,6 +99,8 @@ export const tableKetenagakerjaan = pgTable('ketenagakerjaan', {
   kegiatanUtama: varchar('r320KU'),
   lengkap: varchar('r321L'),
 });
+
+export type NewKetenagakerjaan = typeof tableKetenagakerjaan.$inferInsert;
 
 export const tableKeteranganPerumahan = pgTable('ketPerumahan', {
   id: serial('id').primaryKey(),
@@ -102,6 +114,8 @@ export const tableKeteranganPerumahan = pgTable('ketPerumahan', {
   daya: varchar('r407D'),
 });
 
+export type NewKeteranganPerumahan = typeof tableKeteranganPerumahan.$inferInsert;
+
 export const tableKeteranganPerumahanBlok2 = pgTable('ketPerumahanBlok2', {
   id: serial('id').primaryKey(),
   idKeluarga: integer('keluargaId').notNull().references(() => tableKeluarga.id),
@@ -112,6 +126,8 @@ export const tableKeteranganPerumahanBlok2 = pgTable('ketPerumahanBlok2', {
   kambing: integer('r412K'),
   sapi: integer('r413S'),
 });
+
+export type NewKeteranganPerumahanBlok2 = typeof tableKeteranganPerumahanBlok2.$inferInsert;
 
 export const tableBantuan = pgTable('bantuan', {
   id: serial('id').primaryKey(),
@@ -126,10 +142,12 @@ export const tableBantuan = pgTable('bantuan', {
   bantuanStunting: integer('r502BSTUNTING'),
   bantuanKIS: integer('r502BKIS'),
   bantuanBLT: integer('r502BBLT'),
-  bantuanlainnyaStatus : integer('r502BLS'),
+  bantuanlainnyaStatus: integer('r502BLS'),
   bantuanlainnyaNama: integer('r502BLN'),
   idAnggotaKeluarga: integer('r503id').notNull().references(() => tableAnggotaKeluarga.id),
 }); // many anggota keluarga can have one bantuan, need to check
+
+export type NewBantuan = typeof tableBantuan.$inferInsert;
 
 export const tableDisabilitas = pgTable('disabilitas', {
   id: serial('id').primaryKey(),
@@ -144,6 +162,8 @@ export const tableDisabilitas = pgTable('disabilitas', {
   tunaLainnyaNama: varchar('r602TLNama'),
   idAnggotaKeluarga: integer('r602id').notNull().references(() => tableAnggotaKeluarga.id),
 }); // many anggota keluarga can have one disabilitas, need to check
+
+export type NewDisabilitas = typeof tableDisabilitas.$inferInsert;
 
 // Relations
 export const usersRelations = relations(usersTable, ({ many }) => ({

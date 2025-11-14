@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { User } from '@/lib/db/schema';
-import { getUserById, getUserByEmail } from '@/lib/db/query';
+import { getUserById } from '@/lib/db/query';
 import { getSession } from './session';
 import { redirect } from 'next/navigation';
 
@@ -8,19 +8,22 @@ export type ActionState = {
   error?: string;
   success?: string | boolean;
   message?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any; // This allows for additional properties
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ValidatedActionFunction<S extends z.ZodType<any, any>, T> = (
   data: z.infer<S>,
   formData: FormData
 ) => Promise<T>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validatedAction<S extends z.ZodType<any, any>, T>(
   schema: S,
   action: ValidatedActionFunction<S, T>
 ) {
-  return async (prevState: ActionState, formData: FormData) => {
+  return async (_prevState: ActionState, formData: FormData) => {
     const result = schema.safeParse(Object.fromEntries(formData));
     if (!result.success) {
       return { error: result.error.issues[0].message };
@@ -30,17 +33,19 @@ export function validatedAction<S extends z.ZodType<any, any>, T>(
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ValidatedActionWithUserFunction<S extends z.ZodType<any, any>, T> = (
   data: z.infer<S>,
   formData: FormData,
   user: User
 ) => Promise<T>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validatedActionWithUser<S extends z.ZodType<any, any>, T>(
   schema: S,
   action: ValidatedActionWithUserFunction<S, T>
 ) {
-  return async (prevState: ActionState, formData: FormData) => {
+  return async (_prevState: ActionState, formData: FormData) => {
     const session = await getSession();
     if (!session) {
       throw new Error('User is not authenticated');

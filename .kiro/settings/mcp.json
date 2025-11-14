@@ -1,0 +1,73 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "DEFAULT_MINIMUM_TOKENS": "10000"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "get-library-docs"
+      ]
+    },
+    "sequentialthinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "disabled": false
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "disabled": false
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "get_project_registries",
+        "search_items_in_registries",
+        "get_add_command_for_items"
+      ]
+    },
+    "@magicuidesign/mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@magicuidesign/mcp@latest"
+      ],
+      "disabled": false
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:/P/testapp"
+      ],
+      "disabled": false
+    },
+    "ai-elements": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://registry.ai-sdk.dev/api/mcp"
+      ],
+      "disabled": false
+    }
+  }
+}

@@ -38,10 +38,6 @@ const data = {
                     title: "Overview",
                     url: "/dashboard",
                 },
-                {
-                    title: "Analytics",
-                    url: "/dashboard/analytics",
-                },
             ],
         },
         {
@@ -54,6 +50,7 @@ const data = {
                     url: "/dashboard/users",
                 },
             ],
+            isActive: true,
         },
         {
             title: "Master File Desa",
@@ -65,6 +62,19 @@ const data = {
                     url: "/dashboard/mfd",
                 },
             ],
+            isActive: true,
+        },
+        {
+            title: "Personal",
+            url: "/dashboard/personal",
+            icon: Users,
+            items: [
+                {
+                    title: "Person",
+                    url: "/dashboard/person",
+                },
+            ],
+            isActive: true,
         },
         {
             title: "Access Control",

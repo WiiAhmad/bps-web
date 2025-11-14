@@ -436,20 +436,16 @@ export default function MFDPage() {
                                 ? updateForm.handleSubmit(onUpdateSubmit)
                                 : createForm.handleSubmit(onCreateSubmit)
                         }
-                        className="space-y-6"
+                        className="space-y-4"
                     >
-                        {/* Province Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">Province (Provinsi)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Province - District - Sub-District Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {/* Province */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">Province (Provinsi)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaProvinsi">
-                                        Province Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaProvinsi"
+                                        placeholder="Province Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaProvinsi')
                                             : createForm.register('namaProvinsi'))}
@@ -459,22 +455,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaProvinsi
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaProvinsi
-                                        : createForm.formState.errors.namaProvinsi) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaProvinsi?.message
-                                                : createForm.formState.errors.namaProvinsi?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeProvinsi">
-                                        Province Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeProvinsi"
+                                        placeholder="Province Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeProvinsi')
                                             : createForm.register('kodeProvinsi'))}
@@ -485,30 +467,23 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeProvinsi
-                                        : createForm.formState.errors.kodeProvinsi) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaProvinsi || updateForm.formState.errors.kodeProvinsi
+                                        : createForm.formState.errors.namaProvinsi || createForm.formState.errors.kodeProvinsi) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeProvinsi?.message
-                                                : createForm.formState.errors.kodeProvinsi?.message}
+                                                ? updateForm.formState.errors.namaProvinsi?.message || updateForm.formState.errors.kodeProvinsi?.message
+                                                : createForm.formState.errors.namaProvinsi?.message || createForm.formState.errors.kodeProvinsi?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
-                        </div>
 
-                        {/* District Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">District (Kabupaten)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* District */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">District (Kabupaten)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaKabupaten">
-                                        District Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaKabupaten"
+                                        placeholder="District Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaKabupaten')
                                             : createForm.register('namaKabupaten'))}
@@ -518,22 +493,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaKabupaten
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaKabupaten
-                                        : createForm.formState.errors.namaKabupaten) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaKabupaten?.message
-                                                : createForm.formState.errors.namaKabupaten?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeKabupaten">
-                                        District Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeKabupaten"
+                                        placeholder="District Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeKabupaten')
                                             : createForm.register('kodeKabupaten'))}
@@ -544,30 +505,23 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeKabupaten
-                                        : createForm.formState.errors.kodeKabupaten) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaKabupaten || updateForm.formState.errors.kodeKabupaten
+                                        : createForm.formState.errors.namaKabupaten || createForm.formState.errors.kodeKabupaten) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeKabupaten?.message
-                                                : createForm.formState.errors.kodeKabupaten?.message}
+                                                ? updateForm.formState.errors.namaKabupaten?.message || updateForm.formState.errors.kodeKabupaten?.message
+                                                : createForm.formState.errors.namaKabupaten?.message || createForm.formState.errors.kodeKabupaten?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Sub-District Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">Sub-District (Kecamatan)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Sub-District */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">Sub-District (Kecamatan)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaKecamatan">
-                                        Sub-District Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaKecamatan"
+                                        placeholder="Sub-District Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaKecamatan')
                                             : createForm.register('namaKecamatan'))}
@@ -577,22 +531,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaKecamatan
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaKecamatan
-                                        : createForm.formState.errors.namaKecamatan) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaKecamatan?.message
-                                                : createForm.formState.errors.namaKecamatan?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeKecamatan">
-                                        Sub-District Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeKecamatan"
+                                        placeholder="Sub-District Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeKecamatan')
                                             : createForm.register('kodeKecamatan'))}
@@ -603,30 +543,26 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeKecamatan
-                                        : createForm.formState.errors.kodeKecamatan) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaKecamatan || updateForm.formState.errors.kodeKecamatan
+                                        : createForm.formState.errors.namaKecamatan || createForm.formState.errors.kodeKecamatan) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeKecamatan?.message
-                                                : createForm.formState.errors.kodeKecamatan?.message}
+                                                ? updateForm.formState.errors.namaKecamatan?.message || updateForm.formState.errors.kodeKecamatan?.message
+                                                : createForm.formState.errors.namaKecamatan?.message || createForm.formState.errors.kodeKecamatan?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
                         </div>
 
-                        {/* Village Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">Village (Desa)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Village - Hamlet Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Village */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">Village (Desa)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaDesa">
-                                        Village Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaDesa"
+                                        placeholder="Village Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaDesa')
                                             : createForm.register('namaDesa'))}
@@ -636,22 +572,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaDesa
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaDesa
-                                        : createForm.formState.errors.namaDesa) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaDesa?.message
-                                                : createForm.formState.errors.namaDesa?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeDesa">
-                                        Village Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeDesa"
+                                        placeholder="Village Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeDesa')
                                             : createForm.register('kodeDesa'))}
@@ -662,30 +584,23 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeDesa
-                                        : createForm.formState.errors.kodeDesa) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaDesa || updateForm.formState.errors.kodeDesa
+                                        : createForm.formState.errors.namaDesa || createForm.formState.errors.kodeDesa) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeDesa?.message
-                                                : createForm.formState.errors.kodeDesa?.message}
+                                                ? updateForm.formState.errors.namaDesa?.message || updateForm.formState.errors.kodeDesa?.message
+                                                : createForm.formState.errors.namaDesa?.message || createForm.formState.errors.kodeDesa?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Hamlet Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">Hamlet (Dusun)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Hamlet */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">Hamlet (Dusun)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaDusun">
-                                        Hamlet Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaDusun"
+                                        placeholder="Hamlet Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaDusun')
                                             : createForm.register('namaDusun'))}
@@ -695,22 +610,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaDusun
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaDusun
-                                        : createForm.formState.errors.namaDusun) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaDusun?.message
-                                                : createForm.formState.errors.namaDusun?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeDusun">
-                                        Hamlet Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeDusun"
+                                        placeholder="Hamlet Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeDusun')
                                             : createForm.register('kodeDusun'))}
@@ -721,30 +622,26 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeDusun
-                                        : createForm.formState.errors.kodeDusun) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaDusun || updateForm.formState.errors.kodeDusun
+                                        : createForm.formState.errors.namaDusun || createForm.formState.errors.kodeDusun) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeDusun?.message
-                                                : createForm.formState.errors.kodeDusun?.message}
+                                                ? updateForm.formState.errors.namaDusun?.message || updateForm.formState.errors.kodeDusun?.message
+                                                : createForm.formState.errors.namaDusun?.message || createForm.formState.errors.kodeDusun?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
                         </div>
 
-                        {/* SLS Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">SLS (Satuan Lingkungan Setempat)</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* SLS - Sub-SLS Row */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* SLS */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">SLS (Satuan Lingkungan Setempat)</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaSLS">
-                                        SLS Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaSLS"
+                                        placeholder="SLS Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaSLS')
                                             : createForm.register('namaSLS'))}
@@ -754,22 +651,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaSLS
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaSLS
-                                        : createForm.formState.errors.namaSLS) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaSLS?.message
-                                                : createForm.formState.errors.namaSLS?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeSLS">
-                                        SLS Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeSLS"
+                                        placeholder="SLS Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeSLS')
                                             : createForm.register('kodeSLS'))}
@@ -780,30 +663,23 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeSLS
-                                        : createForm.formState.errors.kodeSLS) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaSLS || updateForm.formState.errors.kodeSLS
+                                        : createForm.formState.errors.namaSLS || createForm.formState.errors.kodeSLS) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeSLS?.message
-                                                : createForm.formState.errors.kodeSLS?.message}
+                                                ? updateForm.formState.errors.namaSLS?.message || updateForm.formState.errors.kodeSLS?.message
+                                                : createForm.formState.errors.namaSLS?.message || createForm.formState.errors.kodeSLS?.message}
                                         </p>
                                     )}
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Sub-SLS Section */}
-                        <div className="space-y-4">
-                            <div className="border-b pb-2">
-                                <h3 className="text-lg font-semibold">Sub-SLS</h3>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {/* Sub-SLS */}
+                            <div className="space-y-2">
+                                <Label className="text-xs font-semibold text-muted-foreground">Sub-SLS</Label>
                                 <div className="space-y-2">
-                                    <Label htmlFor="namaSubSLS">
-                                        Sub-SLS Name <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="namaSubSLS"
+                                        placeholder="Sub-SLS Name"
                                         {...(selectedMFD
                                             ? updateForm.register('namaSubSLS')
                                             : createForm.register('namaSubSLS'))}
@@ -813,22 +689,8 @@ export default function MFDPage() {
                                                 : !!createForm.formState.errors.namaSubSLS
                                         }
                                     />
-                                    {(selectedMFD
-                                        ? updateForm.formState.errors.namaSubSLS
-                                        : createForm.formState.errors.namaSubSLS) && (
-                                        <p className="text-sm text-destructive">
-                                            {selectedMFD
-                                                ? updateForm.formState.errors.namaSubSLS?.message
-                                                : createForm.formState.errors.namaSubSLS?.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="kodeSubSLS">
-                                        Sub-SLS Code <span className="text-destructive">*</span>
-                                    </Label>
                                     <Input
-                                        id="kodeSubSLS"
+                                        placeholder="Sub-SLS Code"
                                         {...(selectedMFD
                                             ? updateForm.register('kodeSubSLS')
                                             : createForm.register('kodeSubSLS'))}
@@ -839,12 +701,12 @@ export default function MFDPage() {
                                         }
                                     />
                                     {(selectedMFD
-                                        ? updateForm.formState.errors.kodeSubSLS
-                                        : createForm.formState.errors.kodeSubSLS) && (
-                                        <p className="text-sm text-destructive">
+                                        ? updateForm.formState.errors.namaSubSLS || updateForm.formState.errors.kodeSubSLS
+                                        : createForm.formState.errors.namaSubSLS || createForm.formState.errors.kodeSubSLS) && (
+                                        <p className="text-xs text-destructive">
                                             {selectedMFD
-                                                ? updateForm.formState.errors.kodeSubSLS?.message
-                                                : createForm.formState.errors.kodeSubSLS?.message}
+                                                ? updateForm.formState.errors.namaSubSLS?.message || updateForm.formState.errors.kodeSubSLS?.message
+                                                : createForm.formState.errors.namaSubSLS?.message || createForm.formState.errors.kodeSubSLS?.message}
                                         </p>
                                     )}
                                 </div>

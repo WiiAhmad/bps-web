@@ -21,7 +21,7 @@ import {
     type NewBantuan,
     type NewDisabilitas,
 } from './schema';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, ne } from 'drizzle-orm';
 
 // ==================== USERS QUERIES ====================
 
@@ -117,13 +117,92 @@ export async function getKeluargaById(id: number) {
     return keluargas[0] || null;
 }
 
+export async function getKeluargaByIdWithMFD(id: number) {
+    const result = await db
+        .select({
+            id: tableKeluarga.id,
+            namaKepalaKeluarga: tableKeluarga.namaKepalaKeluarga,
+            anggotaKeluarga: tableKeluarga.anggotaKeluarga,
+            nomorKartuKeluarga: tableKeluarga.nomorKartuKeluarga,
+            alamat: tableKeluarga.alamat,
+            idMFD: tableKeluarga.idMFD,
+            catatan: tableKeluarga.catatan,
+            mfd: {
+                id: tableMFD.id,
+                namaProvinsi: tableMFD.namaProvinsi,
+                kodeProvinsi: tableMFD.kodeProvinsi,
+                namaKabupaten: tableMFD.namaKabupaten,
+                kodeKabupaten: tableMFD.kodeKabupaten,
+                namaKecamatan: tableMFD.namaKecamatan,
+                kodeKecamatan: tableMFD.kodeKecamatan,
+                namaDesa: tableMFD.namaDesa,
+                kodeDesa: tableMFD.kodeDesa,
+                namaDusun: tableMFD.namaDusun,
+                kodeDusun: tableMFD.kodeDusun,
+                namaSLS: tableMFD.namaSLS,
+                kodeSLS: tableMFD.kodeSLS,
+                namaSubSLS: tableMFD.namaSubSLS,
+                kodeSubSLS: tableMFD.kodeSubSLS,
+            }
+        })
+        .from(tableKeluarga)
+        .leftJoin(tableMFD, eq(tableKeluarga.idMFD, tableMFD.id))
+        .where(eq(tableKeluarga.id, id));
+    return result[0] || null;
+}
+
 export async function getKeluargaByNomorKK(nomorKartuKeluarga: string) {
     const keluargas = await db.select().from(tableKeluarga).where(eq(tableKeluarga.nomorKartuKeluarga, nomorKartuKeluarga));
     return keluargas[0] || null;
 }
 
+export async function getKeluargaByNomorKKExcludingId(nomorKartuKeluarga: string, excludeId: number) {
+    const keluargas = await db
+        .select()
+        .from(tableKeluarga)
+        .where(
+            and(
+                eq(tableKeluarga.nomorKartuKeluarga, nomorKartuKeluarga),
+                ne(tableKeluarga.id, excludeId)
+            )
+        );
+    return keluargas[0] || null;
+}
+
 export async function getAllKeluarga() {
     return await db.select().from(tableKeluarga);
+}
+
+export async function getAllKeluargaWithMFD() {
+    return await db
+        .select({
+            id: tableKeluarga.id,
+            namaKepalaKeluarga: tableKeluarga.namaKepalaKeluarga,
+            anggotaKeluarga: tableKeluarga.anggotaKeluarga,
+            nomorKartuKeluarga: tableKeluarga.nomorKartuKeluarga,
+            alamat: tableKeluarga.alamat,
+            idMFD: tableKeluarga.idMFD,
+            catatan: tableKeluarga.catatan,
+            mfd: {
+                id: tableMFD.id,
+                namaProvinsi: tableMFD.namaProvinsi,
+                kodeProvinsi: tableMFD.kodeProvinsi,
+                namaKabupaten: tableMFD.namaKabupaten,
+                kodeKabupaten: tableMFD.kodeKabupaten,
+                namaKecamatan: tableMFD.namaKecamatan,
+                kodeKecamatan: tableMFD.kodeKecamatan,
+                namaDesa: tableMFD.namaDesa,
+                kodeDesa: tableMFD.kodeDesa,
+                namaDusun: tableMFD.namaDusun,
+                kodeDusun: tableMFD.kodeDusun,
+                namaSLS: tableMFD.namaSLS,
+                kodeSLS: tableMFD.kodeSLS,
+                namaSubSLS: tableMFD.namaSubSLS,
+                kodeSubSLS: tableMFD.kodeSubSLS,
+            }
+        })
+        .from(tableKeluarga)
+        .leftJoin(tableMFD, eq(tableKeluarga.idMFD, tableMFD.id));
 }
 
 export async function getKeluargaByMFD(idMFD: number) {
@@ -143,6 +222,20 @@ export async function updateKeluarga(id: number, data: Partial<NewKeluarga>) {
 export async function deleteKeluarga(id: number) {
     const result = await db.delete(tableKeluarga).where(eq(tableKeluarga.id, id)).returning();
     return result[0] || null;
+}
+
+export async function hasKeluargaRelatedRecords(id: number) {
+    const [anggota, ketPetugas, ketPerumahan, ketPerumahanBlok2, bantuan, disabilitas] = await Promise.all([
+        db.select().from(tableAnggotaKeluarga).where(eq(tableAnggotaKeluarga.idKeluarga, id)),
+        db.select().from(tableKetPetugas).where(eq(tableKetPetugas.idKeluarga, id)),
+        db.select().from(tableKeteranganPerumahan).where(eq(tableKeteranganPerumahan.idKeluarga, id)),
+        db.select().from(tableKeteranganPerumahanBlok2).where(eq(tableKeteranganPerumahanBlok2.idKeluarga, id)),
+        db.select().from(tableBantuan).where(eq(tableBantuan.idKeluarga, id)),
+        db.select().from(tableDisabilitas).where(eq(tableDisabilitas.idKeluarga, id)),
+    ]);
+    
+    return anggota.length > 0 || ketPetugas.length > 0 || ketPerumahan.length > 0 || 
+           ketPerumahanBlok2.length > 0 || bantuan.length > 0 || disabilitas.length > 0;
 }
 
 // ==================== KETERANGAN PETUGAS QUERIES ====================
@@ -195,6 +288,19 @@ export async function getAnggotaKeluargaByNIK(NIK: string) {
     return anggota[0] || null;
 }
 
+export async function getAnggotaKeluargaByNIKExcludingId(NIK: string, excludeId: number) {
+    const anggota = await db
+        .select()
+        .from(tableAnggotaKeluarga)
+        .where(
+            and(
+                eq(tableAnggotaKeluarga.NIK, NIK),
+                ne(tableAnggotaKeluarga.id, excludeId)
+            )
+        );
+    return anggota[0] || null;
+}
+
 export async function getAnggotaKeluargaByKeluarga(idKeluarga: number) {
     return await db.select().from(tableAnggotaKeluarga).where(eq(tableAnggotaKeluarga.idKeluarga, idKeluarga));
 }
@@ -216,6 +322,16 @@ export async function updateAnggotaKeluarga(id: number, data: Partial<NewAnggota
 export async function deleteAnggotaKeluarga(id: number) {
     const result = await db.delete(tableAnggotaKeluarga).where(eq(tableAnggotaKeluarga.id, id)).returning();
     return result[0] || null;
+}
+
+export async function hasAnggotaKeluargaRelatedRecords(id: number) {
+    const [ketenagakerjaan, bantuan, disabilitas] = await Promise.all([
+        db.select().from(tableKetenagakerjaan).where(eq(tableKetenagakerjaan.idAnggotaKeluarga, id)),
+        db.select().from(tableBantuan).where(eq(tableBantuan.idAnggotaKeluarga, id)),
+        db.select().from(tableDisabilitas).where(eq(tableDisabilitas.idAnggotaKeluarga, id)),
+    ]);
+    
+    return ketenagakerjaan.length > 0 || bantuan.length > 0 || disabilitas.length > 0;
 }
 
 // ==================== KETENAGAKERJAAN QUERIES ====================

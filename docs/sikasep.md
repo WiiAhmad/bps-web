@@ -197,7 +197,7 @@
 
 ## Blok IV: Keterangan Perumahan, Kepemilikan Aset, dan Kepemilikan Hewan Ternak
 
-### Blok IV.1 Keterangan Perumahan
+### Blok IV.1: Keterangan Perumahan
 
 401. Luas lantai bangunan tempat tinggal  
 402. Status kepemilikan bangunan tempat tinggal yang ditempati  
@@ -245,7 +245,7 @@
     3. 1.300 watt  
     4. 2.200 watt  
 
-### Blok IV.2 Kepemilikan Aset Tidak Bergerak (Lahan Pertanian dan Non-Pertanian)
+### Blok IV.2: Kepemilikan Aset Tidak Bergerak (Lahan Pertanian dan Non-Pertanian)
 
 408. Luas lahan pertanian berupa sawah (m²)  
 > Isikan "0" jika tidak memiliki  
@@ -254,7 +254,7 @@
 410. Luas lahan pertanian berupa kolam ikan/empang/tambak (m²)  
 > Isikan "0" jika tidak memiliki  
 
-### Blok IV.3 Kepemilikan Hewan Ternak yang Dimiliki Keluarga
+### Blok IV.3: Kepemilikan Hewan Ternak yang Dimiliki Keluarga
 
 411. Jumlah hewan ternak ayam (ekor)  
 > Isikan "0" jika tidak memiliki  

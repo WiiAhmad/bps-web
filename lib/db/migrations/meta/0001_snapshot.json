@@ -1,0 +1,979 @@
+{
+  "id": "1040f06d-a092-4932-82d0-49f79386ed03",
+  "prevId": "41497e3c-4aed-4465-8bca-0fdcaa8979c5",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.anggotaKeluarga": {
+      "name": "anggotaKeluarga",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r301NU": {
+          "name": "r301NU",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r302NL": {
+          "name": "r302NL",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r303NIK": {
+          "name": "r303NIK",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r304JK": {
+          "name": "r304JK",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r305HK": {
+          "name": "r305HK",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r306SK": {
+          "name": "r306SK",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r307TL": {
+          "name": "r307TL",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r308TGL": {
+          "name": "r308TGL",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r309UM": {
+          "name": "r309UM",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r310AG": {
+          "name": "r310AG",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r311KI": {
+          "name": "r311KI",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r312DOM": {
+          "name": "r312DOM",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r313PS": {
+          "name": "r313PS",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r314TP": {
+          "name": "r314TP",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r315KT": {
+          "name": "r315KT",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r316IT": {
+          "name": "r316IT",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "anggotaKeluarga_keluargaId_keluarga_id_fk": {
+          "name": "anggotaKeluarga_keluargaId_keluarga_id_fk",
+          "tableFrom": "anggotaKeluarga",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.bantuan": {
+      "name": "bantuan",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r501B1T": {
+          "name": "r501B1T",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BPKH": {
+          "name": "r502BPKH",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BBPNT": {
+          "name": "r502BBPNT",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BOS": {
+          "name": "r502BOS",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BAPANAS": {
+          "name": "r502BAPANAS",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BSTUNTING": {
+          "name": "r502BSTUNTING",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BKIS": {
+          "name": "r502BKIS",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BBLT": {
+          "name": "r502BBLT",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BLS": {
+          "name": "r502BLS",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r502BLN": {
+          "name": "r502BLN",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r503id": {
+          "name": "r503id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "bantuan_keluargaId_keluarga_id_fk": {
+          "name": "bantuan_keluargaId_keluarga_id_fk",
+          "tableFrom": "bantuan",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "bantuan_r503id_anggotaKeluarga_id_fk": {
+          "name": "bantuan_r503id_anggotaKeluarga_id_fk",
+          "tableFrom": "bantuan",
+          "tableTo": "anggotaKeluarga",
+          "columnsFrom": [
+            "r503id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.disabilitas": {
+      "name": "disabilitas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r601D": {
+          "name": "r601D",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602TD": {
+          "name": "r602TD",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602TW": {
+          "name": "r602TW",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602TN": {
+          "name": "r602TN",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602TL": {
+          "name": "r602TL",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602NS": {
+          "name": "r602NS",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602TLNama": {
+          "name": "r602TLNama",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r602id": {
+          "name": "r602id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "disabilitas_keluargaId_keluarga_id_fk": {
+          "name": "disabilitas_keluargaId_keluarga_id_fk",
+          "tableFrom": "disabilitas",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "disabilitas_r602id_anggotaKeluarga_id_fk": {
+          "name": "disabilitas_r602id_anggotaKeluarga_id_fk",
+          "tableFrom": "disabilitas",
+          "tableTo": "anggotaKeluarga",
+          "columnsFrom": [
+            "r602id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.keluarga": {
+      "name": "keluarga",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "r108NKK": {
+          "name": "r108NKK",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r109AK": {
+          "name": "r109AK",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r110NKK": {
+          "name": "r110NKK",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r111AL": {
+          "name": "r111AL",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mfdId": {
+          "name": "mfdId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rNote": {
+          "name": "rNote",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "keluarga_mfdId_mfd_id_fk": {
+          "name": "keluarga_mfdId_mfd_id_fk",
+          "tableFrom": "keluarga",
+          "tableTo": "mfd",
+          "columnsFrom": [
+            "mfdId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ketPetugas": {
+      "name": "ketPetugas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "r201TP": {
+          "name": "r201TP",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r202NP": {
+          "name": "r202NP",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r202KP": {
+          "name": "r202KP",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r203TPr": {
+          "name": "r203TPr",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r204NPr": {
+          "name": "r204NPr",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r204KPr": {
+          "name": "r204KPr",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r205HP": {
+          "name": "r205HP",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "ketPetugas_r202KP_users_id_fk": {
+          "name": "ketPetugas_r202KP_users_id_fk",
+          "tableFrom": "ketPetugas",
+          "tableTo": "users",
+          "columnsFrom": [
+            "r202KP"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "ketPetugas_r204KPr_users_id_fk": {
+          "name": "ketPetugas_r204KPr_users_id_fk",
+          "tableFrom": "ketPetugas",
+          "tableTo": "users",
+          "columnsFrom": [
+            "r204KPr"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "ketPetugas_keluargaId_keluarga_id_fk": {
+          "name": "ketPetugas_keluargaId_keluarga_id_fk",
+          "tableFrom": "ketPetugas",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ketenagakerjaan": {
+      "name": "ketenagakerjaan",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "anggotaKeluargaId": {
+          "name": "anggotaKeluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r317B": {
+          "name": "r317B",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r318LU": {
+          "name": "r318LU",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r319SP": {
+          "name": "r319SP",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r320KU": {
+          "name": "r320KU",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r321L": {
+          "name": "r321L",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "ketenagakerjaan_anggotaKeluargaId_anggotaKeluarga_id_fk": {
+          "name": "ketenagakerjaan_anggotaKeluargaId_anggotaKeluarga_id_fk",
+          "tableFrom": "ketenagakerjaan",
+          "tableTo": "anggotaKeluarga",
+          "columnsFrom": [
+            "anggotaKeluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ketPerumahan": {
+      "name": "ketPerumahan",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r401LL": {
+          "name": "r401LL",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r402Sk": {
+          "name": "r402Sk",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r403BK": {
+          "name": "r403BK",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r404SAM": {
+          "name": "r404SAM",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r405FB": {
+          "name": "r405FB",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r406PU": {
+          "name": "r406PU",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r407D": {
+          "name": "r407D",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "ketPerumahan_keluargaId_keluarga_id_fk": {
+          "name": "ketPerumahan_keluargaId_keluarga_id_fk",
+          "tableFrom": "ketPerumahan",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ketPerumahanBlok2": {
+      "name": "ketPerumahanBlok2",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "keluargaId": {
+          "name": "keluargaId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r408LPS": {
+          "name": "r408LPS",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r409LPK": {
+          "name": "r409LPK",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r410LPKo": {
+          "name": "r410LPKo",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r411A": {
+          "name": "r411A",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r412K": {
+          "name": "r412K",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "r413S": {
+          "name": "r413S",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "ketPerumahanBlok2_keluargaId_keluarga_id_fk": {
+          "name": "ketPerumahanBlok2_keluargaId_keluarga_id_fk",
+          "tableFrom": "ketPerumahanBlok2",
+          "tableTo": "keluarga",
+          "columnsFrom": [
+            "keluargaId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.mfd": {
+      "name": "mfd",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "r101Pro": {
+          "name": "r101Pro",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r101KPro": {
+          "name": "r101KPro",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r102Kab": {
+          "name": "r102Kab",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r102KKab": {
+          "name": "r102KKab",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r103Kec": {
+          "name": "r103Kec",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r103KKec": {
+          "name": "r103KKec",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r104Des": {
+          "name": "r104Des",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r104KDes": {
+          "name": "r104KDes",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r105Dus": {
+          "name": "r105Dus",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r105KDus": {
+          "name": "r105KDus",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r106SLS": {
+          "name": "r106SLS",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r106KSLS": {
+          "name": "r106KSLS",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r107SSLS": {
+          "name": "r107SSLS",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "r107KSSLS": {
+          "name": "r107KSSLS",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nama": {
+          "name": "nama",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "photo": {
+          "name": "photo",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tanggal_lahir": {
+          "name": "tanggal_lahir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "NoTelpon": {
+          "name": "NoTelpon",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'user'"
+        },
+        "alamat": {
+          "name": "alamat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "deleted": {
+          "name": "deleted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

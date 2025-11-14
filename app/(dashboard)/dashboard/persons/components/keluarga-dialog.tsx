@@ -79,12 +79,15 @@ export function KeluargaDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent 
+        className="max-w-2xl max-h-[90vh] overflow-y-auto"
+        aria-describedby="keluarga-dialog-description"
+      >
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle id="keluarga-dialog-title">
             {mode === 'create' ? 'Add New Family' : 'Edit Family'}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription id="keluarga-dialog-description">
             {mode === 'create'
               ? 'Enter the family information below to create a new family record.'
               : 'Update the family information below.'}

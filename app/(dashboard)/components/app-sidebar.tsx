@@ -65,13 +65,13 @@ const data = {
             isActive: true,
         },
         {
-            title: "Personal",
-            url: "/dashboard/personal",
+            title: "Persons",
+            url: "/dashboard/persons",
             icon: Users,
             items: [
                 {
-                    title: "Person",
-                    url: "/dashboard/person",
+                    title: "All Families",
+                    url: "/dashboard/persons",
                 },
             ],
             isActive: true,

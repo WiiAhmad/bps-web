@@ -230,10 +230,14 @@ export default function PersonsPage() {
     return (
         <div className="space-y-4">
             {/* Page Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <h1 className="text-2xl font-bold">Persons Management</h1>
-                <Button onClick={handleAddKeluarga} aria-label="Add new family">
-                    <PlusIcon />
+                <Button 
+                    onClick={handleAddKeluarga} 
+                    aria-label="Add new family"
+                    className="w-full sm:w-auto min-h-[44px]"
+                >
+                    <PlusIcon aria-hidden="true" />
                     Add Family
                 </Button>
             </div>
@@ -242,20 +246,27 @@ export default function PersonsPage() {
             <div className="flex flex-col sm:flex-row gap-4">
                 {/* Search Input */}
                 <div className="relative flex-1">
-                    <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <SearchIcon 
+                        className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" 
+                        aria-hidden="true"
+                    />
                     <Input
                         placeholder="Search by family head name, card number, or address..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-9"
-                        aria-label="Search families"
+                        className="pl-9 min-h-[44px]"
+                        aria-label="Search families by name, card number, or address"
+                        role="searchbox"
                     />
                 </div>
 
                 {/* MFD Location Filter */}
                 <div className="flex gap-2">
                     <Select value={selectedMFDFilter} onValueChange={setSelectedMFDFilter}>
-                        <SelectTrigger className="w-full sm:w-64" aria-label="Filter by MFD location">
+                        <SelectTrigger 
+                            className="w-full sm:w-64 min-h-[44px]" 
+                            aria-label="Filter families by MFD location"
+                        >
                             <SelectValue placeholder="All Locations" />
                         </SelectTrigger>
                         <SelectContent>
@@ -274,9 +285,10 @@ export default function PersonsPage() {
                             variant="outline"
                             size="icon"
                             onClick={handleClearFilters}
-                            aria-label="Clear filters"
+                            aria-label="Clear all filters"
+                            className="min-w-[44px] min-h-[44px]"
                         >
-                            <XIcon />
+                            <XIcon aria-hidden="true" />
                         </Button>
                     )}
                 </div>
@@ -284,15 +296,24 @@ export default function PersonsPage() {
 
             {/* Results Count */}
             {hasActiveFilters && (
-                <div className="text-sm text-muted-foreground">
+                <div 
+                    className="text-sm text-muted-foreground" 
+                    role="status" 
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
                     Showing {filteredKeluargas.length} of {keluargas.length} families
                 </div>
             )}
 
             {/* Keluarga Table */}
-            <div className="rounded-md border">
+            <div className="rounded-md border overflow-x-auto">
                 {filteredKeluargas.length === 0 ? (
-                    <div className="p-8 text-center text-muted-foreground">
+                    <div 
+                        className="p-8 text-center text-muted-foreground"
+                        role="status"
+                        aria-live="polite"
+                    >
                         {hasActiveFilters
                             ? 'No families found matching your search criteria.'
                             : 'No family records found. Click "Add Family" to create one.'}
@@ -301,12 +322,12 @@ export default function PersonsPage() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead>Family Head Name</TableHead>
-                                <TableHead className="hidden md:table-cell">Members</TableHead>
-                                <TableHead>Family Card Number</TableHead>
-                                <TableHead className="hidden lg:table-cell">Address</TableHead>
-                                <TableHead className="hidden xl:table-cell">MFD Location</TableHead>
-                                <TableHead className="text-right">Actions</TableHead>
+                                <TableHead scope="col">Family Head Name</TableHead>
+                                <TableHead scope="col" className="hidden md:table-cell">Members</TableHead>
+                                <TableHead scope="col">Family Card Number</TableHead>
+                                <TableHead scope="col" className="hidden lg:table-cell">Address</TableHead>
+                                <TableHead scope="col" className="hidden xl:table-cell">MFD Location</TableHead>
+                                <TableHead scope="col" className="text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -314,6 +335,10 @@ export default function PersonsPage() {
                                 <TableRow key={keluarga.id}>
                                     <TableCell>
                                         <div className="font-medium">{keluarga.namaKepalaKeluarga}</div>
+                                        {/* Show members count on mobile */}
+                                        <div className="md:hidden text-xs text-muted-foreground mt-1">
+                                            {keluarga.anggotaKeluarga} member(s)
+                                        </div>
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">
                                         <Badge variant="secondary">{keluarga.anggotaKeluarga}</Badge>
@@ -330,30 +355,33 @@ export default function PersonsPage() {
                                         <div className="text-sm">{formatMFDLocation(keluarga.mfd)}</div>
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <div className="flex justify-end gap-2">
+                                        <div className="flex justify-end gap-1 sm:gap-2">
                                             <Button
                                                 variant="ghost"
                                                 size="icon-sm"
                                                 onClick={() => handleViewDetails(keluarga)}
                                                 aria-label={`View details for ${keluarga.namaKepalaKeluarga}`}
+                                                className="min-w-[44px] min-h-[44px]"
                                             >
-                                                <EyeIcon />
+                                                <EyeIcon aria-hidden="true" />
                                             </Button>
                                             <Button
                                                 variant="ghost"
                                                 size="icon-sm"
                                                 onClick={() => handleEditKeluarga(keluarga)}
                                                 aria-label={`Edit ${keluarga.namaKepalaKeluarga}`}
+                                                className="min-w-[44px] min-h-[44px]"
                                             >
-                                                <PencilIcon />
+                                                <PencilIcon aria-hidden="true" />
                                             </Button>
                                             <Button
                                                 variant="ghost"
                                                 size="icon-sm"
                                                 onClick={() => handleDeleteKeluarga(keluarga)}
                                                 aria-label={`Delete ${keluarga.namaKepalaKeluarga}`}
+                                                className="min-w-[44px] min-h-[44px]"
                                             >
-                                                <TrashIcon />
+                                                <TrashIcon aria-hidden="true" />
                                             </Button>
                                         </div>
                                     </TableCell>
@@ -387,23 +415,29 @@ export default function PersonsPage() {
 
             {/* Delete Confirmation Dialog */}
             <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-                <AlertDialogContent>
+                <AlertDialogContent role="alertdialog" aria-labelledby="delete-dialog-title" aria-describedby="delete-dialog-description">
                     <AlertDialogHeader>
-                        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                        <AlertDialogDescription>
+                        <AlertDialogTitle id="delete-dialog-title">Are you sure?</AlertDialogTitle>
+                        <AlertDialogDescription id="delete-dialog-description">
                             This will delete the family record for{' '}
                             <span className="font-semibold">{selectedKeluarga?.namaKepalaKeluarga}</span> (Family
                             Card: {selectedKeluarga?.nomorKartuKeluarga}). This action cannot be undone.
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+                        <AlertDialogCancel 
+                            disabled={isDeleting}
+                            className="min-h-[44px]"
+                        >
+                            Cancel
+                        </AlertDialogCancel>
                         <AlertDialogAction
                             onClick={onDeleteConfirm}
                             disabled={isDeleting}
-                            className="bg-destructive text-white hover:bg-destructive/90"
+                            className="bg-destructive text-white hover:bg-destructive/90 min-h-[44px]"
+                            aria-label="Confirm delete family record"
                         >
-                            Delete
+                            {isDeleting ? 'Deleting...' : 'Delete'}
                         </AlertDialogAction>
                     </AlertDialogFooter>
                 </AlertDialogContent>

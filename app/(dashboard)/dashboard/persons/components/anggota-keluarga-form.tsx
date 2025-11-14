@@ -453,19 +453,24 @@ export function AnggotaKeluargaForm({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-end gap-2 pt-4">
+      <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4">
         {onCancel && (
           <Button
             type="button"
             variant="outline"
             onClick={onCancel}
             disabled={isLoading}
+            className="min-h-[44px]"
           >
             Cancel
           </Button>
         )}
-        <Button type="submit" disabled={isLoading}>
-          {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+        <Button 
+          type="submit" 
+          disabled={isLoading}
+          className="min-h-[44px]"
+        >
+          {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
           {initialData?.id ? 'Update Family Member' : 'Add Family Member'}
         </Button>
       </div>

@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { AnggotaKeluargaForm, type AnggotaKeluargaFormData } from './anggota-keluarga-form';
-import { createAnggotaKeluargaAction, updateAnggotaKeluargaAction } from '../actions';
+import { createAnggotaKeluargaAction, updateAnggotaKeluargaAction } from '../[id]/actions';
 import { toast } from 'sonner';
 
 interface AnggotaKeluargaDialogProps {
@@ -68,12 +68,15 @@ export function AnggotaKeluargaDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent 
+        className="max-w-4xl max-h-[90vh] overflow-y-auto"
+        aria-describedby="anggota-dialog-description"
+      >
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle id="anggota-dialog-title">
             {mode === 'create' ? 'Add New Family Member' : 'Edit Family Member'}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription id="anggota-dialog-description">
             {mode === 'create'
               ? 'Enter the family member information below to create a new record.'
               : 'Update the family member information below.'}

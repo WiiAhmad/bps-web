@@ -9,18 +9,18 @@
 105. Dusun  
 106. RW  
 107. RT  
-108. Nama Kepala Keluarga (KK)  
-109. Jumlah Anggota Keluarga  
-110. Nomor Kartu Keluarga  
+108. Nama kepala keluarga (KK)  
+109. Jumlah anggota keluarga  
+110. Nomor kartu keluarga  
 111. Alamat  
 
 ## Keterangan Petugas
 
-201. Tanggal Pendataan  
-202. Nama Pendataan  
-203. Tanggal Pemeriksaan  
-204. Nama Pemeriksa  
-205. Hasil Pendataan Keluarga  
+201. Tanggal pendataan  
+202. Nama pendataan  
+203. Tanggal pemeriksaan  
+204. Nama pemeriksa  
+205. Hasil pendataan keluarga  
     1. Terisi lengkap  
     2. Terisi tidak lengkap  
     3. Tidak ada responden yang dapat memberi jawaban sampai akhir masa pendataan  
@@ -33,9 +33,9 @@
 
 301. Nomor urut anggota keluarga  
 302. Nama ART lengkap  
-> Tuliskan semua yang tercantum dalam Kartu Keluarga (KK) dan siapa saja yang biasanya tinggal bersama keluarga ini, baik dewasa, anak-anak maupun bayi (tuliskan nama sesuai dengan identitas).  
+> Tuliskan semua yang tercantum dalam kartu keluarga (KK) dan siapa saja yang biasanya tinggal bersama keluarga ini, baik dewasa, anak-anak maupun bayi (tuliskan nama sesuai identitas).  
 
-303. Nomor Induk Kependudukan (NIK)  
+303. Nomor induk kependudukan (NIK)  
 
 304. Jenis kelamin  
     1. Laki-laki  
@@ -114,7 +114,7 @@
     22. S3  
     23. Tidak memiliki ijazah/STTB  
 
-315. Kelas tertinggi yang pernah/sedang  
+315. Kelas tertinggi yang pernah/sedang diduduki  
     1. Kelas 1  
     2. Kelas 2  
     3. Kelas 3  
@@ -122,7 +122,7 @@
     5. Kelas 5  
     6. Kelas 6  
     7. Kelas 7  
-    8. Tamat & lulus  
+    8. Tamat dan lulus  
 
 316. Ijazah/STTB tertinggi yang dimiliki  
     1. Paket A  
@@ -156,32 +156,32 @@
     2. Tidak bekerja  
 
 318. Apakah lapangan usaha dari pekerjaan utama  
-    1. Pertanian tanaman & palawija  
+    1. Pertanian tanaman dan palawija  
     2. Hortikultura  
     3. Perkebunan  
     4. Perikanan  
     5. Peternakan  
-    6. Kehutanan & pertanian lainnya  
+    6. Kehutanan dan pertanian lainnya  
     7. Pertambangan/penggalian  
     8. Industri pengolahan  
     9. Pengadaan listrik, gas, uap/air panas, dan udara dingin  
     10. Pengelolaan air, limbah, dan daur ulang  
     11. Konstruksi  
-    12. Perdagangan besar & eceran  
-    13. Pengangkutan & pergudangan  
-    14. Penyediaan akomodasi & makanan minuman  
-    15. Informasi & komunikasi  
-    16. Keuangan & asuransi  
-    17. Real estate  
-    18. Aktivitas profesional, ilmiah, & teknis  
-    19. Aktivitas penyewaan, agen perjalanan, & penunjang usaha lainnya  
-    20. Administrasi pemerintahan, pertahanan, & jaminan sosial wajib  
+    12. Perdagangan besar dan eceran  
+    13. Pengangkutan dan pergudangan  
+    14. Penyediaan akomodasi dan makanan minuman  
+    15. Informasi dan komunikasi  
+    16. Keuangan dan asuransi  
+    17. Real estat  
+    18. Aktivitas profesional, ilmiah, dan teknis  
+    19. Aktivitas penyewaan, agen perjalanan, dan penunjang usaha lainnya  
+    20. Administrasi pemerintahan, pertahanan, dan jaminan sosial wajib  
     21. Pendidikan  
-    22. Aktivitas kesehatan manusia & sosial  
-    23. Kesenian, hiburan, & rekreasi  
+    22. Aktivitas kesehatan manusia dan sosial  
+    23. Kesenian, hiburan, dan rekreasi  
     24. Aktivitas jasa lainnya  
     25. Aktivitas keluarga sebagai pemberi kerja  
-    26. Aktivitas badan internasional & ekstra internasional lainnya  
+    26. Aktivitas badan internasional dan ekstra internasional lainnya  
 
 319. Status dalam pekerjaan utama  
 
@@ -245,7 +245,7 @@
     3. 1.300 watt  
     4. 2.200 watt  
 
-### Blok IV.2 Kepemilikan Aset Tidak Bergerak (Lahan Pertanian & Non-Pertanian)
+### Blok IV.2 Kepemilikan Aset Tidak Bergerak (Lahan Pertanian dan Non-Pertanian)
 
 408. Luas lahan pertanian berupa sawah (m²)  
 > Isikan "0" jika tidak memiliki  
@@ -262,3 +262,70 @@
 > Isikan "0" jika tidak memiliki  
 413. Jumlah hewan ternak sapi/kerbau (ekor)  
 > Isikan "0" jika tidak memiliki  
+
+## Blok V: Keterangan Program Bantuan Langsung dari Pemerintah/Swasta
+
+501. Apakah keluarga ini dalam 1 tahun terakhir mendapatkan program bantuan langsung pemerintah/swasta  
+    1. Ya  
+    2. Tidak  
+
+502. Sebutkan program bantuan tersebut (apabila 501 berkode 1)  
+    1. PKH  
+        1. Ya  
+        2. Tidak  
+    2. BPNT  
+        1. Ya  
+        2. Tidak  
+    3. BOS  
+        1. Ya  
+        2. Tidak  
+    4. BAPANAS  
+        1. Ya  
+        2. Tidak  
+    5. Stunting  
+        1. Ya  
+        2. Tidak  
+    6. PBI JKN/KIS  
+        1. Ya  
+        2. Tidak  
+    7. BLT DD  
+        1. Ya  
+        2. Tidak  
+    8. Lainnya (tuliskan ...)  
+        1. Ya  
+        2. Tidak  
+
+503. Sebutkan nama anggota keluarga penerima program bantuan dan program bantuan yang diterima  
+> Jawaban dapat diisi lebih dari satu orang dan isikan jenis program bantuan yang diterima  
+
+## Blok VI: Keterangan Disabilitas
+
+601. Apakah ada anggota keluarga yang mengalami disabilitas  
+    1. Ya  
+    2. Tidak  
+
+602. Pilihlah jenis disabilitas yang dialaminya (apabila 601 berkode 1)  
+    1. Tuna daksa (cacat fisik/tangan/kaki)  
+        1. Ya  
+        2. Tidak  
+    2. Tuna rungu  
+        1. Ja  
+        2. Tidak  
+    3. Tuna wicara  
+        1. Ya  
+        2. Tidak  
+    4. Tuna netra  
+        1. Ya  
+        2. Tidak  
+    5. Tuna laras (gangguan mental)  
+        1. Ya  
+        2. Tidak  
+    6. Lainnya (tuliskan ...)  
+        1. Ya  
+        2. Tidak  
+
+603. Sebutkan nama penderita disabilitas tersebut  
+> Jawaban bisa lebih dari satu  
+
+## Blok VII: Catatan
+> isi sesuai kebutuhan

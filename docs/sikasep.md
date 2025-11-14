@@ -1,4 +1,5 @@
 # **Kuesioner SI-KASEP**
+
 ## Keterangan Tempat
 
 101. Provinsi  
@@ -11,7 +12,7 @@
 108. Nama Kepala Keluarga (KK)  
 109. Jumlah Anggota Keluarga  
 110. Nomor Kartu Keluarga  
-111. Alamat
+111. Alamat  
 
 ## Keterangan Petugas
 
@@ -20,48 +21,49 @@
 203. Tanggal Pemeriksaan  
 204. Nama Pemeriksa  
 205. Hasil Pendataan Keluarga  
-    1. Terisi Lengkap  
-    2. Terisi Tidak Lengkap  
+    1. Terisi lengkap  
+    2. Terisi tidak lengkap  
     3. Tidak ada responden yang dapat memberi jawaban sampai akhir masa pendataan  
-    4. Responden Menolak  
-    5. Keluarga Pindah
+    4. Responden menolak  
+    5. Keluarga pindah  
 
 ## Keterangan Sosial Anggota Keluarga
+
 ### A. Keterangan Demografi
 
-301. Nomor Urut Anggota Keluarga  
-302. Nama ART Lengkap  
-> Tuliskan semua yang tercantum dalam kartu keluarga (KK) dan siapa saja yang biasanya tinggal bersama keluarga ini, baik dewasa, anak-anak maupun bayi (Tuliskan nama sesuai dengan identitas)
+301. Nomor urut anggota keluarga  
+302. Nama ART lengkap  
+> Tuliskan semua yang tercantum dalam Kartu Keluarga (KK) dan siapa saja yang biasanya tinggal bersama keluarga ini, baik dewasa, anak-anak maupun bayi (tuliskan nama sesuai dengan identitas).  
 
-303. Nomor Induk Kependudukan (NIK)
+303. Nomor Induk Kependudukan (NIK)  
 
-304. Jenis Kelamin  
+304. Jenis kelamin  
     1. Laki-laki  
     2. Perempuan  
 
-305. Status Hubungan Dengan Kepala Keluarga  
-    1. Kepala Keluarga  
-    2. Istri/Suami  
+305. Status hubungan dengan kepala keluarga  
+    1. Kepala keluarga  
+    2. Istri/suami  
     3. Anak  
     4. Menantu  
     5. Cucu  
-    6. Orang tua/Mertua  
-    7. Pembantu/Sopir  
+    6. Orang tua/mertua  
+    7. Pembantu/sopir  
     8. Lainnya  
 
-306. Status Perkawinan  
-    1. Belum Kawin  
+306. Status perkawinan  
+    1. Belum kawin  
     2. Kawin  
-    3. Cerai Hidup  
-    4. Cerai Mati  
+    3. Cerai hidup  
+    4. Cerai mati  
 
-307. Tempat Lahir  
-308. Tanggal Lahir  
+307. Tempat lahir  
+308. Tanggal lahir  
 > Tanggal/Bulan/Tahun  
 
-309. Umur (Tahun)
+309. Umur (tahun)  
 
-310. Agama Yang Dianut  
+310. Agama yang dianut  
     1. Islam  
     2. Kristen  
     3. Katolik  
@@ -70,33 +72,33 @@
     6. Konghucu  
     7. Lainnya  
 
-311. Apakah Memiliki Kartu Identitas  
-    0. Tidak Memiliki  
-    1. Akta Kelahiran  
+311. Apakah memiliki kartu identitas  
+    0. Tidak memiliki  
+    1. Akta kelahiran  
     2. KIA  
     3. KTP  
 
-312. Apakah Alamat di KIA/KTP sesuai domisili saat ini  
+312. Apakah alamat di KIA/KTP sesuai domisili saat ini  
     1. Sama  
     2. Berbeda  
 
-### B. Pendidikan (Anggota Keluarga Usia 5 Tahun Keatas)
+### B. Pendidikan (Anggota Keluarga Usia 5 Tahun ke Atas)
 
-313. Partisipasi Sekolah  
-    1. Tidak/Belum Pernah Sekolah  
-    2. Masih Sekolah  
-    3. Tidak Bersekolah Lagi  
+313. Partisipasi sekolah  
+    1. Tidak/belum pernah sekolah  
+    2. Masih sekolah  
+    3. Tidak bersekolah lagi  
 
 314. Jenjang dan jenis pendidikan tertinggi yang pernah/sedang diduduki  
     1. Paket A  
     2. SDLB  
     3. SD  
     4. MI  
-    5. SPM/PDF ula  
+    5. SPM/PDF Ula  
     6. SPM/PDF  
     7. SMP LB  
     8. Paket B  
-    9. MTS  
+    9. MTs  
     10. SPM/PDF Wustha  
     11. Paket C  
     12. SM LB  
@@ -110,9 +112,9 @@
     20. Profesi  
     21. S2  
     22. S3  
-    23. Tidak Memiliki Ijazah/STTB  
+    23. Tidak memiliki ijazah/STTB  
 
-315. Kelas Tertinggi yang pernah/sedang  
+315. Kelas tertinggi yang pernah/sedang  
     1. Kelas 1  
     2. Kelas 2  
     3. Kelas 3  
@@ -120,18 +122,18 @@
     5. Kelas 5  
     6. Kelas 6  
     7. Kelas 7  
-    8. Tamat & Lulus  
+    8. Tamat & lulus  
 
-316. Ijazah/STTB Tertinggi yang dimiliki  
+316. Ijazah/STTB tertinggi yang dimiliki  
     1. Paket A  
     2. SDLB  
     3. SD  
     4. MI  
-    5. SPM/PDF ula  
+    5. SPM/PDF Ula  
     6. SPM/PDF  
     7. SMP LB  
     8. Paket B  
-    9. MTS  
+    9. MTs  
     10. SPM/PDF Wustha  
     11. Paket C  
     12. SM LB  
@@ -145,50 +147,118 @@
     20. Profesi  
     21. S2  
     22. S3  
-    23. Tidak Memiliki Ijazah/STTB  
+    23. Tidak memiliki ijazah/STTB  
 
 ### C. Ketenagakerjaan
 
 317. Apakah bekerja/membantu bekerja selama seminggu lalu  
-    1. Ya, Bekerja  
-    2. Tidak Bekerja  
+    1. Ya, bekerja  
+    2. Tidak bekerja  
 
-318. Apakah Lapangan Usaha Dari Pekerjaan Utama  
+318. Apakah lapangan usaha dari pekerjaan utama  
     1. Pertanian tanaman & palawija  
     2. Hortikultura  
     3. Perkebunan  
     4. Perikanan  
     5. Peternakan  
-    6. Kehutanan & Pertanian lainnya  
-    7. Pertambangan/Penggalian  
-    8. Industri Pengolahan  
+    6. Kehutanan & pertanian lainnya  
+    7. Pertambangan/penggalian  
+    8. Industri pengolahan  
     9. Pengadaan listrik, gas, uap/air panas, dan udara dingin  
-    10. Pengelolaan air, pengelolaan air limbah, pengelolaan dan daur ulang sampah, dan aktivitas remediasi  
+    10. Pengelolaan air, limbah, dan daur ulang  
     11. Konstruksi  
-    12. Perdagangan besar dan eceran, reparasi dan perawatan mobil dan sepeda motor  
-    13. Pengangkutan dan Pergudangan  
+    12. Perdagangan besar & eceran  
+    13. Pengangkutan & pergudangan  
     14. Penyediaan akomodasi & makanan minuman  
-    15. Informasi & Komunikasi  
-    16. Keuangan & Asuransi  
-    17. Real Astate  
-    18. Aktivitas Profesional, Ilmiah, dan Teknis  
-    19. Aktivitas Penyewaan dan sewa guna tanpa hak opsi, ketenagakerjaan, agen perjalanan, dan penunjang usaha lainnya  
-    20. Administrasi Pemerintahan, Pertahanan, dan Jaminan Sosial Wajib  
+    15. Informasi & komunikasi  
+    16. Keuangan & asuransi  
+    17. Real estate  
+    18. Aktivitas profesional, ilmiah, & teknis  
+    19. Aktivitas penyewaan, agen perjalanan, & penunjang usaha lainnya  
+    20. Administrasi pemerintahan, pertahanan, & jaminan sosial wajib  
     21. Pendidikan  
-    22. Aktivitas kesehatan manusia dan aktivitas sosial  
-    23. Kesenian, Hiburan, dan Rekreasi  
-    24. Aktivitas Jasa lainnya  
+    22. Aktivitas kesehatan manusia & sosial  
+    23. Kesenian, hiburan, & rekreasi  
+    24. Aktivitas jasa lainnya  
     25. Aktivitas keluarga sebagai pemberi kerja  
-    26. Aktivitas badan internasional dan badan ekstra internasional lainnya  
+    26. Aktivitas badan internasional & ekstra internasional lainnya  
 
-319. Status Dalam Pekerjaan Utama  
+319. Status dalam pekerjaan utama  
 
-320. Kegiatan Utama Dalam Seminggu  
+320. Kegiatan utama dalam seminggu  
     1. Bekerja  
     2. Sekolah  
-    3. Mengurus Rumah Tangga  
-    4. Kegiatan Lainnya  
+    3. Mengurus rumah tangga  
+    4. Kegiatan lainnya  
 
-321. Apakah seluruh anggota keluarga saudara sudah terdata secara lengkap  
+321. Apakah seluruh anggota keluarga sudah terdata secara lengkap  
     1. Ya (kembali ke Blok IV R401)  
     2. Tidak (kembali ke Blok IV R410)  
+
+## Blok IV: Keterangan Perumahan, Kepemilikan Aset, dan Kepemilikan Hewan Ternak
+
+### Blok IV.1 Keterangan Perumahan
+
+401. Luas lantai bangunan tempat tinggal  
+402. Status kepemilikan bangunan tempat tinggal yang ditempati  
+    1. Milik sendiri  
+    2. Kontrak/sewa  
+    3. Bebas sewa  
+    4. Dinas  
+    5. Lainnya  
+
+403. Jenis bukti kepemilikan tanah bangunan tempat tinggal (jika berkode 1 pada 402)  
+    1. SHM atas nama anggota keluarga  
+    2. SHM bukan atas nama anggota keluarga dengan perjanjian pemanfaatan tertulis  
+    3. SHM bukan atas nama anggota keluarga tanpa perjanjian pemanfaatan tertulis  
+    4. Sertifikat selain SHM (SHGB, SHSRS)  
+    5. Surat bukti lainnya (girik, letter C, dll.)  
+    6. Tidak punya  
+
+404. Sumber air minum utama  
+    1. Air kemasan bermerek  
+    2. Air isi ulang  
+    3. Leding  
+    4. Sumur bor/pipa  
+    5. Sumur terlindung  
+    6. Sumur tak terlindung  
+    7. Mata air terlindung  
+    8. Mata air tak terlindung  
+    9. Air permukaan (sungai/danau/waduk/kolam/irigasi)  
+    10. Air hujan  
+    11. Lainnya  
+
+405. Kepemilikan dan penggunaan fasilitas tempat buang air besar  
+    1. Ada, digunakan keluarga sendiri  
+    2. Ada, digunakan bersama keluarga tertentu  
+    3. Ada, digunakan umum  
+
+406. Sumber penerangan utama bangunan tempat tinggal  
+    1. Listrik PLN dengan meteran  
+    2. Listrik PLN tanpa meteran  
+    3. Listrik non-PLN  
+    4. Bukan listrik  
+
+407. Daya listrik terpasang (jika 406 berkode 1)  
+    1. 450 watt  
+    2. 900 watt  
+    3. 1.300 watt  
+    4. 2.200 watt  
+
+### Blok IV.2 Kepemilikan Aset Tidak Bergerak (Lahan Pertanian & Non-Pertanian)
+
+408. Luas lahan pertanian berupa sawah (m²)  
+> Isikan "0" jika tidak memiliki  
+409. Luas lahan pertanian berupa kebun/tanah (m²)  
+> Isikan "0" jika tidak memiliki  
+410. Luas lahan pertanian berupa kolam ikan/empang/tambak (m²)  
+> Isikan "0" jika tidak memiliki  
+
+### Blok IV.3 Kepemilikan Hewan Ternak yang Dimiliki Keluarga
+
+411. Jumlah hewan ternak ayam (ekor)  
+> Isikan "0" jika tidak memiliki  
+412. Jumlah hewan ternak domba/kambing (ekor)  
+> Isikan "0" jika tidak memiliki  
+413. Jumlah hewan ternak sapi/kerbau (ekor)  
+> Isikan "0" jika tidak memiliki  

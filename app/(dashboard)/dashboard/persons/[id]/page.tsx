@@ -1764,7 +1764,11 @@ export default function FamilyDetailPage() {
                 onOpenChange={setIsKetPetugasDialogOpen}
                 mode={selectedKetPetugas ? 'edit' : 'create'}
                 idKeluarga={keluargaId}
-                initialData={selectedKetPetugas ? { ...selectedKetPetugas } : undefined}
+                initialData={selectedKetPetugas ? { 
+                    ...selectedKetPetugas,
+                    tanggalPendataan: new Date(selectedKetPetugas.tanggalPendataan),
+                    tanggalPemeriksaan: new Date(selectedKetPetugas.tanggalPemeriksaan)
+                } : undefined}
                 onSuccess={fetchFamilyDetail}
                 onSubmitAction={handleKetPetugasSubmit}
             />

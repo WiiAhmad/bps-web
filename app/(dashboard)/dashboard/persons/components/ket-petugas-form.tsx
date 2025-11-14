@@ -13,10 +13,10 @@ import { Loader2 } from 'lucide-react';
 
 // Validation schema
 const createKetPetugasSchema = z.object({
-  tanggalPendataan: z.string().min(1, 'Data collection date is required'),
+  tanggalPendataan: z.date({ message: 'Data collection date is required' }),
   namaPendata: z.string().min(2, 'Collector name must be at least 2 characters'),
   kodePendata: z.number().min(1, 'Data collector is required'),
-  tanggalPemeriksaan: z.string().min(1, 'Inspection date is required'),
+  tanggalPemeriksaan: z.date({ message: 'Inspection date is required' }),
   namaPemeriksa: z.string().min(2, 'Inspector name must be at least 2 characters'),
   kodePemeriksa: z.number().min(1, 'Inspector is required'),
   hasilPendataan: z.string().min(1, 'Survey result is required'),
@@ -49,10 +49,10 @@ export function KetPetugasForm({
   } = useForm<KetPetugasFormData>({
     resolver: zodResolver(createKetPetugasSchema),
     defaultValues: {
-      tanggalPendataan: initialData?.tanggalPendataan || '',
+      tanggalPendataan: initialData?.tanggalPendataan || undefined,
       namaPendata: initialData?.namaPendata || '',
       kodePendata: initialData?.kodePendata || 0,
-      tanggalPemeriksaan: initialData?.tanggalPemeriksaan || '',
+      tanggalPemeriksaan: initialData?.tanggalPemeriksaan || undefined,
       namaPemeriksa: initialData?.namaPemeriksa || '',
       kodePemeriksa: initialData?.kodePemeriksa || 0,
       hasilPendataan: initialData?.hasilPendataan || '',
@@ -76,7 +76,7 @@ export function KetPetugasForm({
         </Label>
         <DatePickerField
           value={watch('tanggalPendataan')}
-          onChange={(value) => setValue('tanggalPendataan', value, { shouldValidate: true })}
+          onChange={(value) => setValue('tanggalPendataan', value as Date, { shouldValidate: true })}
           error={errors.tanggalPendataan?.message}
         />
       </div>
@@ -117,7 +117,7 @@ export function KetPetugasForm({
         </Label>
         <DatePickerField
           value={watch('tanggalPemeriksaan')}
-          onChange={(value) => setValue('tanggalPemeriksaan', value, { shouldValidate: true })}
+          onChange={(value) => setValue('tanggalPemeriksaan', value as Date, { shouldValidate: true })}
           error={errors.tanggalPemeriksaan?.message}
         />
       </div>

@@ -22,7 +22,7 @@ const createAnggotaKeluargaSchema = z.object({
   hubunganKeluarga: z.number().min(1, 'Family relationship is required'),
   statusKawin: z.number().min(1, 'Marital status is required'),
   tempatLahir: z.string().min(2, 'Place of birth is required'),
-  tanggalLahir: z.date({ required_error: 'Date of birth is required' }),
+  tanggalLahir: z.date({ message: 'Date of birth is required' }),
   umur: z.number().min(0, 'Age must be 0 or greater'),
   agama: z.number().min(1, 'Religion is required'),
   kartuIdentitas: z.number().min(1, 'Identity card type is required'),

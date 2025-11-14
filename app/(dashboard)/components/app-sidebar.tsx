@@ -53,13 +53,16 @@ const data = {
                     title: "All Users",
                     url: "/dashboard/users",
                 },
+            ],
+        },
+        {
+            title: "Master File Desa",
+            url: "/dashboard/mfd",
+            icon: Users,
+            items: [
                 {
-                    title: "Add User",
-                    url: "/dashboard/users/add",
-                },
-                {
-                    title: "User Roles",
-                    url: "/dashboard/users/roles",
+                    title: "Default mfd",
+                    url: "/dashboard/mfd",
                 },
             ],
         },

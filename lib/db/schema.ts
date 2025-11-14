@@ -19,6 +19,7 @@ export const usersTable = pgTable('users', {
   deleted: integer('deleted').notNull().default(0),
 });
 
+export type User = typeof usersTable.$inferSelect;
 export type NewUser = typeof usersTable.$inferInsert;
 
 export const tableMFD = pgTable('mfd', {
@@ -39,6 +40,7 @@ export const tableMFD = pgTable('mfd', {
   kodeSubSLS: varchar('r107KSSLS').notNull(),
 });
 
+export type MFD = typeof tableMFD.$inferInsert;
 export type NewMFD = typeof tableMFD.$inferInsert;
 
 export const tableKeluarga = pgTable('keluarga', {

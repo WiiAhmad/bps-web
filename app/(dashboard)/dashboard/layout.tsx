@@ -13,6 +13,9 @@ import {
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 
+// Force dynamic rendering for authenticated routes
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardLayout({
     children,
 }: {
